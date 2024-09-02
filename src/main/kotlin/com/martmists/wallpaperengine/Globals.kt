@@ -12,5 +12,5 @@ object Globals {
         decodeEnumsCaseInsensitive = true
     }
 
-    const val DEBUG = true
+    const val DEBUG = false
 }

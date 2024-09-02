@@ -1,5 +1,6 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import com.martmists.commons.isStable
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("jvm")
@@ -10,19 +11,18 @@ plugins {
 }
 
 group = "com.martmists"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     google()
     mavenCentral()
-    mavenLocal()
+    maven("https://maven.martmists.com/snapshots")
 }
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}")
 
-    implementation("com.dorkbox:SystemTray:${Versions.systemTray}:all")
-//    implementation("com.dorkbox:OS:1.11")  // Until SystemTray updates
+    implementation("com.dorkbox:SystemTray:${Versions.systemTray}:all")  // From my own Maven repository to get v4.5
 
     implementation(compose.foundation)
     implementation(compose.material3)
@@ -35,6 +35,20 @@ dependencies {
     }
     runtimeOnly(compose.desktop.currentOs) {
         exclude(group="org.jetbrains.compose.material", module="material")
+    }
+}
+
+compose {
+    desktop {
+        application {
+            mainClass = "com.martmists.wallpaperengine.MainKt"
+
+            nativeDistributions {
+                targetFormats(TargetFormat.AppImage)
+                packageName = "Wallpaper Engine"
+                packageVersion = project.version as String
+            }
+        }
     }
 }
 
