@@ -1,0 +1,7 @@
+### IDE Files
+.idea/
+
+### Gradle Files
+.gradle/
+.kotlin/
+build/
