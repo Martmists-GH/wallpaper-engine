@@ -44,9 +44,17 @@ compose {
             mainClass = "com.martmists.wallpaperengine.MainKt"
 
             nativeDistributions {
-                targetFormats(TargetFormat.AppImage)
-                packageName = "Wallpaper Engine"
+                targetFormats(TargetFormat.Deb)
+                packageName = "WallpaperEngine"
                 packageVersion = project.version as String
+            }
+
+            buildTypes {
+                release {
+                    proguard {
+                        isEnabled = false
+                    }
+                }
             }
         }
     }
