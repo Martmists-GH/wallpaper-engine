@@ -27,6 +27,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: build/compose/binaries/main-release/deb/*.deb
+          token: ${{ secrets.GH_ACTIONS_TOKEN }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
