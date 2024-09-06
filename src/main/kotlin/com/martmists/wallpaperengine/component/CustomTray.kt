@@ -50,9 +50,6 @@ fun CustomTray(
     val tray = remember { SystemTray.get() }
 
     DisposableEffect(tray) {
-        // SystemTray 4.4 uses OS 8 which has a long delay for loading the tray
-        // See: https://github.com/dorkbox/SystemTray/issues/190
-        // Fixed in SystemTray 4.5 but not released yet nearly a year later :(
         scope.launch(Dispatchers.IO) {
             tray.setImage(icon.toAwtImage(GlobalDensity, LayoutDirection.Ltr, Size(16f, 16f)))
             TrayBuilder(tray).builder()

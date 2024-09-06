@@ -22,7 +22,7 @@ import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import com.martmists.wallpaperengine.component.CustomTray
 import com.martmists.wallpaperengine.component.DynamicImage
-import com.martmists.wallpaperengine.component.NonlazyGrid
+import com.martmists.wallpaperengine.component.NonLazyGrid
 import com.martmists.wallpaperengine.component.Pill
 import com.martmists.wallpaperengine.data.DisplayData
 import com.martmists.wallpaperengine.data.WallpaperConfig
@@ -44,7 +44,7 @@ fun main() {
         })
     }
 
-    return application {
+    application {
         if (isLocked) {
             Window(onCloseRequest = ::exitApplication) {
                 MaterialTheme {
@@ -140,7 +140,7 @@ fun main() {
                             wallpapers.entries.toList()
                         }
 
-                        NonlazyGrid(
+                        NonLazyGrid(
                             2, wallpapers.size,
                             modifier = Modifier.padding(16.dp).verticalScroll(rememberScrollState())
                         ) {
@@ -159,6 +159,7 @@ fun main() {
                                             )
 
                                             Row {
+                                                // TODO: Give certain pills different colors? Perhaps through a config?
                                                 Pill(wallpaper.type.name.lowercase().capitalize(Locale.current))
 
                                                 for (tag in wallpaper.tags) {

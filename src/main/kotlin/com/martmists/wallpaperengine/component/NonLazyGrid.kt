@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 
 // Taken from https://dev.to/maaxgr/jetpack-compose-grid-without-lazy-5gb8
 @Composable
-fun NonlazyGrid(
+fun NonLazyGrid(
     columns: Int,
     itemCount: Int,
     modifier: Modifier = Modifier,

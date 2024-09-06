@@ -36,6 +36,13 @@ To remove a wallpaper, right-click the tray icon and select "Remove Wallpaper" o
 
 ## Installation
 
+### Dependencies
+
+This program has the following dependencies:
+
+- `kscreen` for getting display information.
+- `wine` for running Wallpaper Engine.
+
 ### Setting up KWin rules
 
 You'll want to add the following KWin rules:
@@ -73,9 +80,18 @@ Position: `Force`, `0,0`  (set to the top-left corner of the display, check the 
 
 ---
 
+### Setting up Wallpaper Engine
+
+Make sure to install [Wallpaper Engine](https://store.steampowered.com/app/431960/Wallpaper_Engine/) on Steam.    
+Then, run `wine /path/to/steam/steamapps/common/wallpaper_engine/installer.exe`. This will set up the wallpaper32/64 binaries used by this application.    
+Finally, download wallpapers from the Steam Workshop. You may need to run the official application to make steam download them.
+
+> If you want to stop wallpapers from playing audio, you need to do so in the official application.
+
 ### Installing the application
 
-TODO (publishing not set up)
+You can grab the latest release from the [releases page](https://github.com/Martmists-GH/wallpaper-engine/releases).    
+Then, simply run `wallpaper-engine` from the terminal/krunner, or add it to your autostart.
 
 ## License
 
