@@ -12,5 +12,5 @@ object Globals {
         decodeEnumsCaseInsensitive = true
     }
 
-    const val DEBUG = false
+    val DEBUG = System.getProperty("wallpaperengine.debug") == "true"
 }
